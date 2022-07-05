@@ -1,4 +1,4 @@
-package com.example.demo.db.models;
+package com.example.demo.dao.dto;
 
 import com.opencsv.bean.CsvBindByName;
 
