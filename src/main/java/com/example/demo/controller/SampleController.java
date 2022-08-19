@@ -1,7 +1,7 @@
-package com.example.demo.Controller;
-import com.example.demo.Service.SampleService;
-import com.example.demo.db.models.DataCsvDTO;
-import com.example.demo.db.models.DataDTO;
+package com.example.demo.controller;
+import com.example.demo.dao.dto.DataDTO;
+import com.example.demo.service.SampleService;
+import com.example.demo.dao.dto.DataCsvDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +17,12 @@ public class SampleController {
     @Autowired
     private SampleService sampleService;
 
-    @GetMapping("/test")
-    public String testService() {
-        return sampleService.testService();
-    }
-    @GetMapping("/getData")
-    public List<DataCsvDTO> getData() throws FileNotFoundException {
+    @GetMapping("/getCsvData")
+    public List<DataCsvDTO> getCsvData() throws FileNotFoundException {
         return sampleService.getDataCsv();
+    }
+    @GetMapping("/getJsonData")
+    public List<DataDTO> getJsonData() throws FileNotFoundException {
+        return sampleService.getData();
     }
 }
